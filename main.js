@@ -105,6 +105,7 @@ const data = [{
 ]
 
 let sec = document.querySelector('section')
+let title = document.querySelector('title')
 
 const CreateElement = (mass) => {
     let div4
@@ -168,6 +169,7 @@ const serch = () => {
     sec.innerHTML = ' '
     for (const item of data) {
         if (`${item.title}.html` == local[local.length - 1]) {
+            title.innerText = item.title 
             CreateElement(item)
             return
         }  else if ('index.html' == local[local.length - 1]) {
