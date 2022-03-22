@@ -151,7 +151,7 @@ const CreateElement = (mass) => {
     p13.innerText = mass.specs.camera.description
     p14.innerText = mass.specs.weight
     a.innerText = 'learn more'
-    a.setAttribute('href', `file:///D:/Prog/hm14/index/${mass.title}.html`)
+    a.setAttribute('href', `./index/${mass.title}.html`)
     for (const items of mass.specs.other) {
         let p2 = document.createElement('p')
         p2.innerText = items
