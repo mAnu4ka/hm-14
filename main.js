@@ -170,7 +170,7 @@ const serch = () => {
         if (`${item.title}.html` == local[local.length - 1]) {
             CreateElement(item)
             return
-        }  else {
+        }  else if ('index.html' == local[local.length - 1]) {
             CreateElement(item)
         }
     }
