@@ -1,0 +1,36 @@
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    outline: none;
+    border: none;
+    list-style: none;
+    text-decoration: none;
+}
+
+body {
+    font-family: 'Gilroy';
+}
+
+section {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(520px, 1fr));
+    margin: 0 auto;
+    grid-gap: 10px;
+}
+
+.bloke {
+    background-color: aliceblue;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.bloke div {
+    display: flex;
+    gap: 5px;
+}
+.color{
+    width: 2px;
+    height: 2px;
+}
