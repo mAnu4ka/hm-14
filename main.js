@@ -1,7 +1,8 @@
 const data = [{
         title: 'MacBookAir',
-        img: 'macbookair.png',
+        img: './img/macbookair.png',
         price: 999,
+        proz: 'm1',
         url: 'https://www.apple.com/shop/buy-mac/macbook-air',
         colors: ['#C7C8CA', '#B1B2B7', '#E3CCB4'],
         specs: {
@@ -34,7 +35,9 @@ const data = [{
     },
     {
         title: 'MacBookPro13',
+        img: './img/macbook13.png',
         price: 1299,
+        proz: 'm1',
         url: 'https://www.apple.com/shop/buy-mac/macbook-pro/13-inch',
         colors: ['#C7C8CA', '#B1B2B7'],
         specs: {
@@ -69,6 +72,8 @@ const data = [{
     },
     {
         title: 'MacBookAirpro',
+        img: './img/macbookpro.png',
+        proz: 'intel',
         price: 999,
         url: 'https://www.apple.com/shop/buy-mac/macbook-pro/16-inch',
         colors: ['#C7C8CA', '#B1B2B7', '#E3CCB4'],
@@ -85,8 +90,8 @@ const data = [{
                 title: 'Up to 64GB memory',
                 description: ''
             },
-            size: 8,
             memory: {
+                size: 8,
                 type: 'tb'
             },
             battery: 11,
@@ -106,12 +111,37 @@ const data = [{
 
 let sec = document.querySelector('section')
 let title = document.querySelector('title')
+let a = document.createElement('a')
 
-const CreateElement = (mass) => {
+const CreateElement = (mass,itemcount) => {
     let div4
     let div = document.createElement('div')
-    let p = document.createElement('p')
-    let p1 = document.createElement('p')
+    let title = document.createElement('p')
+    let price = document.createElement('p')
+
+    let display = document.createElement('p')
+    let display1 = document.createElement('p')
+    let chip = document.createElement('p')
+    let chip1 = document.createElement('p')
+    let ram = document.createElement('p')
+    let ram1 = document.createElement('p')
+    let memoryTEXT = document.createElement('p')
+    let memoryTEXT1 = document.createElement('p')
+    let batteryTEXT = document.createElement('p')
+    let camera1 = document.createElement('p')
+    let camera = document.createElement('p')
+    let weight = document.createElement('p')
+    let div3 = document.createElement('div')
+    let macbook = document.createElement('img')
+    let battery = document.createElement('img')
+    let Intel = document.createElement('img')
+    let memory = document.createElement('img')
+    let video = document.createElement('img')
+    let memoriblok = document.createElement('div')
+    let line = document.createElement('div')
+    let line2 = document.createElement('div')
+    a = document.createElement('a')
+
     for (const color of mass.colors) {
         div4 = document.createElement('div')
         let div2 = document.createElement('div')
@@ -119,46 +149,60 @@ const CreateElement = (mass) => {
         div2.classList.add('color')
         div4.append(div2)
     }
-    let p3 = document.createElement('p')
-    let p4 = document.createElement('p')
-    let p5 = document.createElement('p')
-    let p6 = document.createElement('p')
-    let p7 = document.createElement('p')
-    let p8 = document.createElement('p')
-    let p9 = document.createElement('p')
-    let p10 = document.createElement('p')
-    let p11 = document.createElement('p')
-    let p12 = document.createElement('p')
-    let p13 = document.createElement('p')
-    let p14 = document.createElement('p')
-    let div3 = document.createElement('div')
-    let a = document.createElement('a')
-
-
+    memoriblok.classList.add('bloke')
+    line.classList.add('line')
+    line2.classList.add('line')
     div.classList.add('bloke')
-    p.innerText = mass.title
-    p1.innerText = mass.price
-    p3.innerText = mass.specs.display.title
-    p4.innerText = mass.specs.display.size
-    p5.innerText = mass.specs.chip.title
-    p6.innerText = mass.specs.chip.description
-    p7.innerText = mass.specs.ram.title
-    p8.innerText = mass.specs.ram.description
-    p9.innerText = mass.specs.memory.size
-    p10.innerText = mass.specs.memory.type
-    p11.innerText = mass.specs.battery
-    p12.innerText = mass.specs.camera.title
-    p13.innerText = mass.specs.camera.description
-    p14.innerText = mass.specs.weight
+    title.innerText = mass.title
+    title.classList.add('bold__bold')
+    price.innerText = mass.price
+    display.innerText = mass.specs.display.title
+    display1.innerText = mass.specs.display.size
+    display1.classList.add('bold')
+    chip.innerText = mass.specs.chip.title
+    chip1.innerText = mass.specs.chip.description
+    ram.innerText = mass.specs.ram.title
+    ram1.innerText = mass.specs.ram.description
+    memoryTEXT.innerText = mass.specs.memory.size
+    memoryTEXT1.innerText = mass.specs.memory.type
+    batteryTEXT.innerText = mass.specs.battery
+    camera1.innerText = mass.specs.camera.title
+    camera.innerText = mass.specs.camera.description
+    weight.innerText = mass.specs.weight
+    weight.classList.add('bold')
     a.innerText = 'learn more'
     a.setAttribute('href', `./index/${mass.title}.html`)
+    if (itemcount == 1) {
+        macbook.setAttribute('src', `.${mass.img}`)
+        battery.setAttribute('src', '../img/battery.png')
+        if (mass.proz == 'm1') Intel.setAttribute('src', '../img/m1.png')
+        else Intel.setAttribute('src', '../img/intel.png')
+        if (mass.specs.memory.size == 8) memory.setAttribute('src', '../img/memory2.png')
+        else memory.setAttribute('src', '../img/memory.png')
+        video.setAttribute('src', '../img/video.png')
+    }else{
+        macbook.setAttribute('src', mass.img)
+        battery.setAttribute('src', './img/battery.png')
+        if (mass.proz == 'm1') Intel.setAttribute('src', './img/m1.png')
+        else Intel.setAttribute('src', './img/intel.png')
+        if (mass.specs.memory.size == 8) memory.setAttribute('src', './img/memory2.png')
+        else memory.setAttribute('src', './img/memory.png')
+        video.setAttribute('src', './img/video.png')
+    }
+        
+    
+
+    div3.append(ram, ram1)
+
+
+    memoriblok.append(memoryTEXT, memoryTEXT1)
+    div.append(macbook,title, price, line2, display1, display, Intel, chip, chip1, div3, memory, memoriblok, battery, batteryTEXT, video, camera1, camera, weight)
     for (const items of mass.specs.other) {
         let p2 = document.createElement('p')
         p2.innerText = items
         div.append(p2)
     }
-    div3.append(p9, p10)
-    div.append(p, p1, div4, p3, p4, p5, p6, p7, p8, div3, p11, p12, p13, p14, a)
+    div.append(line, a)
     sec.append(div)
 }
 
@@ -169,12 +213,14 @@ const serch = () => {
     sec.innerHTML = ' '
     for (const item of data) {
         if (`${item.title}.html` == local[local.length - 1]) {
-            title.innerText = item.title 
-            CreateElement(item)
+            CreateElement(item, 1)
+            title.innerText = item.title
+            a.setAttribute('href', `../index.html`)
+            local.pop()
+            local.pop()
             return
-        }  else if ('index.html' == local[local.length - 1]) {
-            CreateElement(item)
-        }
+        } else if ('index.html' == local[local.length - 1]) CreateElement(item)
+
     }
 }
 serch()
