@@ -171,7 +171,7 @@ const CreateElement = (mass,itemcount) => {
     weight.innerText = mass.specs.weight
     weight.classList.add('bold')
     a.innerText = 'learn more'
-    a.setAttribute('href', `./index/${mass.title}.html`)
+    a.setAttribute('href', `./папка makbook/${mass.title}.html`)
     if (itemcount == 1) {
         macbook.setAttribute('src', `.${mass.img}`)
         battery.setAttribute('src', '../img/battery.png')
